@@ -17,7 +17,7 @@ function saveUser() {
   };
 
   $.ajax({
-      url: 'http://localhost:4000/api/users',
+      url: 'https://userform-mobzway-f7oq.onrender.com/api/users',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(user),
