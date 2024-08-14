@@ -4,6 +4,8 @@ const isValidStreet = (value) =>
 const isValidMobileNo = (value) => {
   return /^[1-9][0-9]{9}$/.test(value);
 };
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
 
 const mongoose = require('mongoose');
 
@@ -36,7 +38,10 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Email is required"],
-    
+    validate: {
+      validator: isValidEmail,
+      message: "Enter a valid email address",
+    },
   },
   address: {
     street: {
